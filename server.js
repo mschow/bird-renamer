@@ -12,11 +12,7 @@ const NUTHATCH_HEADERS = {
   "api-key": process.env.NUTHATCH_KEY,
 };
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.get("/birds", (req, res, next) => {
+app.get("/api/birds", (req, res, next) => {
   axios
     .get(`${NUTHATCH_URL}/birds`, { headers: NUTHATCH_HEADERS })
     .then((response) => res.status(200).send(response.data))
@@ -25,7 +21,7 @@ app.get("/birds", (req, res, next) => {
     });
 });
 
-app.get("/birds/:id", (req, res, next) => {
+app.get("/api/birds/:id", (req, res, next) => {
   axios
     .get(`${NUTHATCH_URL}/birds/${req.params.id}`, {
       headers: NUTHATCH_HEADERS,
