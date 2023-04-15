@@ -3,11 +3,13 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { birdService } from "./services/bird-service";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Bird Renamer</div>,
+    element: <App />,
+    loader: birdService.getAllBirds,
   },
 ]);
 

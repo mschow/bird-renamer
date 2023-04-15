@@ -7,13 +7,12 @@ export class Bird {
   #family;
   #images; // String array or URLs.
 
-
   /**
    * Bird object used in all templates.
    * @param { id, name, sciName, status, order, family, images } param0 Partial data returned from Nuthatch API.
    * @see { @link ../services/berd-service.js }
    */
-  constructor({ id, name, sciName, status, order, family, images } ){
+  constructor({ id, name, sciName, status, order, family, images }) {
     this.#id = id;
     this.#name = name;
     this.#sciName = sciName;
@@ -27,11 +26,11 @@ export class Bird {
     return this.#id;
   }
 
-  get name(){
+  get name() {
     return this.#name;
   }
 
-  get sciName(){
+  get sciName() {
     return this.#sciName;
   }
 
