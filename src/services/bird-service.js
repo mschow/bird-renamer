@@ -19,3 +19,6 @@ export const birdService = {
 };
 
 const birdFilter = (bird) => bird.images?.length > 0;
+
+// The Nuthatch API IDs of birds featured in this application.
+const eponymouslyNamedBirds = [];
