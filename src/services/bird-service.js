@@ -9,7 +9,7 @@ export const birdService = {
     const birds = await axios
       .get(`api/birds`)
       .then((res) => {
-        return res.data.filter(birdFilter).map((result) => new Bird(result));
+        return res.data.map((result) => new Bird(result));
       })
       .catch((err) => {
         console.error(err);
@@ -17,8 +17,6 @@ export const birdService = {
     return birds;
   },
 };
-
-const birdFilter = (bird) => bird.images?.length > 0;
 
 // The Nuthatch API IDs of birds featured in this application.
 const eponymouslyNamedBirds = [];
