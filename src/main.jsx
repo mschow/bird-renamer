@@ -4,12 +4,17 @@ import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { birdService } from "./services/bird-service";
+import Signup from "./pages/signup";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     loader: birdService.getAllBirds,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 
