@@ -10,7 +10,6 @@ export class Bird {
   /**
    * Bird object used in all templates.
    * @param { id, name, sciName, status, order, family, images } param0 Partial data returned from Nuthatch API.
-   * @see { @link ../services/berd-service.js }
    */
   constructor({ id, name, sciName, status, order, family, images }) {
     this.#id = id;
