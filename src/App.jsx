@@ -16,7 +16,7 @@ function App() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="./signup">Log In / Sign Up</NavLink>
+            <NavLink to="./login">Log In / Sign Up</NavLink>
           </li>
         </ul>
       </nav>

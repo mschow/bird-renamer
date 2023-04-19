@@ -6,7 +6,7 @@ import { Form } from "react-router-dom";
 export default function Signup() {
   return (
     <div className="w-full flex justify-center">
-      <div className="mt-10 w-full md:w-1/2 ">
+      <div className="mt-10 w-full md:w-2/5 min-w-[25em] max-w-[30em]">
         <div className="w-full text-center ">
           <span className="text-3xl font-bold">Create an Account</span>
         </div>
@@ -48,7 +48,10 @@ export default function Signup() {
                   </label>
                 </li>
                 <li>
-                  <button type="submit" className="w-full bg-teal-600 mt-5">
+                  <button
+                    type="submit"
+                    className="w-full bg-teal-600 hover:bg-neutral-50 hover:text-teal-600 mt-5"
+                  >
                     Sign Up
                   </button>
                 </li>
@@ -58,9 +61,7 @@ export default function Signup() {
               <Link to="/login">
                 <span>
                   Already have an account?{" "}
-                  <span className="font-bold underline text-teal-600">
-                    Login!
-                  </span>
+                  <span className="hyperlink">Login!</span>
                 </span>
               </Link>
             </div>

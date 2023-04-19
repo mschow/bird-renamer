@@ -30,9 +30,13 @@ label i {
 }
 
 input {
-  @apply dark:bg-zinc-700 rounded text-lg p-2 border border-neutral-300;
+  @apply dark:bg-zinc-700 rounded text-lg p-2 border border-neutral-300 text-neutral-50;
 }
 
 button {
-  @apply rounded p-3 font-bold text-white;
+  @apply rounded p-3 font-bold text-white ease-in duration-150;
+}
+
+.hyperlink {
+  @apply font-bold underline text-teal-600 hover:text-teal-400 ease-in duration-200;
 }
