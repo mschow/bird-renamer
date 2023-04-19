@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="min-h-screen">
       <nav>
-        <ul className="sticky w-full dark:bg-gray-900  flex justify-between p-5">
+        <ul className="sticky w-full dark:bg-zinc-900 bg-teal-700 text-neutral-50 flex justify-between p-5">
           <li>
             <NavLink to="/">
               <i className="fa-solid fa-feather"></i>

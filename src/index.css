@@ -8,14 +8,31 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: "Cabin", sans-serif;
+}
+
 body {
-  @apply dark:bg-gray-800 dark:text-white min-h-screen;
+  @apply dark:bg-zinc-800 dark:text-neutral-50 bg-neutral-100 text-neutral-700;
+  min-height: svh100;
+}
+
+label {
+  @apply dark:text-zinc-400 my-1;
+}
+
+label span {
+  @apply ml-0.5;
+}
+
+label i {
+  @apply mr-2;
 }
 
 input {
-  @apply dark:bg-gray-700 rounded text-lg p-2;
+  @apply dark:bg-zinc-700 rounded text-lg p-2 border border-neutral-300;
 }
 
 button {
-  @apply rounded p-3 font-bold;
+  @apply rounded p-3 font-bold text-white;
 }

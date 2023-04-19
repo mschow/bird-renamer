@@ -11,10 +11,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     loader: birdService.getAllBirds,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
+    children: [
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+    ],
   },
 ]);
 
