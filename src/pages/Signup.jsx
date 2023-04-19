@@ -48,10 +48,7 @@ export default function Signup() {
                   </label>
                 </li>
                 <li>
-                  <button
-                    type="submit"
-                    className="w-full bg-teal-600 hover:bg-neutral-50 hover:text-teal-600 mt-5"
-                  >
+                  <button type="submit" className="teal-btn w-full mt-5">
                     Sign Up
                   </button>
                 </li>
