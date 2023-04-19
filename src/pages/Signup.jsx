@@ -5,12 +5,12 @@ import { Form } from "react-router-dom";
 
 export default function Signup() {
   return (
-    <div className="min-h-screen w-full flex justify-center">
+    <div className="w-full flex justify-center">
       <div className="mt-10 w-full md:w-1/2 ">
         <div className="w-full text-center ">
           <span className="text-3xl font-bold">Create an Account</span>
         </div>
-        <div className="p-5 rounded-lg drop-shadow-sm">
+        <div className="px-5 rounded-lg drop-shadow-sm">
           <div className="w-full">
             <Form method="post">
               <ul className="w-full p-5 grid grid-cols-1 gap-2">
