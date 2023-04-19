@@ -6,9 +6,9 @@ function App() {
   const birds = useLoaderData();
 
   return (
-    <div className="min-h-screen dark:bg-slate-800">
+    <div className="min-h-screen">
       <nav>
-        <ul className="sticky w-full dark:bg-slate-900 text-white flex justify-between p-5">
+        <ul className="sticky w-full dark:bg-gray-900  flex justify-between p-5">
           <li>
             <NavLink to="/">
               <i className="fa-solid fa-feather"></i>
@@ -20,9 +20,9 @@ function App() {
           </li>
         </ul>
       </nav>
-      <section>
+      <div>
         <Outlet />
-      </section>
+      </div>
     </div>
   );
 }

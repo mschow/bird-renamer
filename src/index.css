@@ -7,3 +7,15 @@
 ::after {
   box-sizing: border-box;
 }
+
+body {
+  @apply dark:bg-gray-800 dark:text-white min-h-screen;
+}
+
+input {
+  @apply dark:bg-gray-700 rounded text-lg p-2;
+}
+
+button {
+  @apply rounded p-3 font-bold;
+}
