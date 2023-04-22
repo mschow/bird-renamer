@@ -33,11 +33,15 @@ input {
   @apply dark:bg-zinc-700 rounded text-lg p-2 border border-neutral-300 text-neutral-50;
 }
 
-button {
-  @apply rounded p-3 font-bold text-white  ease-in duration-150;
+input.invalid {
+  @apply border-red-500 dark:border-red-600;
 }
 
-button.teal-btn {
+button {
+  @apply rounded p-3 font-bold text-white ease-in duration-150 disabled:bg-neutral-500 disabled:text-neutral-300 disabled:cursor-not-allowed;
+}
+
+button.teal-btn:enabled {
   @apply bg-teal-600 hover:bg-teal-500 hover:dark:bg-neutral-50 hover:dark:text-teal-600;
 }
 
