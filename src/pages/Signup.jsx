@@ -88,7 +88,7 @@ export default function Signup() {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="mt-10 w-full md:w-2/5 min-w-[25em] max-w-[30em]">
+      <div className="mt-10 w-full min-w-[20em] max-w-[30em] md:w-2/5 md:min-w-[25em]">
         <div className="w-full text-center ">
           <span className="text-3xl font-bold">Create an Account</span>
         </div>

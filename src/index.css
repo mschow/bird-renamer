@@ -30,7 +30,7 @@ label i {
 }
 
 input {
-  @apply dark:bg-zinc-700 rounded text-lg p-2 border border-neutral-300 text-neutral-50;
+  @apply dark:bg-zinc-700 rounded text-lg p-2 border border-neutral-300 dark:text-neutral-50;
 }
 
 input.invalid {
