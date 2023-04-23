@@ -5,16 +5,23 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { birdService } from "./services/bird-service";
 import Signup from "./pages/Signup";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     loader: birdService.getAllBirds,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "/signup",
-        element: <Signup />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/signup",
+            element: <Signup />,
+          },
+        ],
       },
     ],
   },

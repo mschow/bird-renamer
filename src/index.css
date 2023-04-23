@@ -12,9 +12,13 @@ html {
   font-family: "Cabin", sans-serif;
 }
 
+.full-height {
+  min-height: 100svh;
+}
+
 body {
   @apply dark:bg-zinc-800 dark:text-neutral-50 bg-neutral-100 text-neutral-700;
-  min-height: svh100;
+  min-height: 100svh;
 }
 
 label {
