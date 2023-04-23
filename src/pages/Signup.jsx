@@ -37,6 +37,11 @@ export default function Signup() {
   const update = (event) => {
     const target = event.currentTarget;
 
+    setBlurred({
+      ...blurred,
+      [target.name]: false,
+    });
+
     setState({
       ...state,
       [target.name]: target.value,
