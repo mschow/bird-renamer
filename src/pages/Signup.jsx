@@ -63,21 +63,21 @@ export default function Signup() {
     username:
       state.username && blurred.username && !validationRules.username
         ? "Username must not exceed 32 characters. Please use alphanumerics, '-', and '_' only."
-        : null,
+        : "",
     email:
       state.email && blurred.email && !validationRules.email
         ? "Email address must be valid."
-        : null,
+        : "",
     password:
       state.password && blurred.password && !validationRules.password
         ? "Password must be at least 8 characters long and contain at least one capital letter, one lower-case letter, one number, and one special character."
-        : null,
+        : "",
     confirmPassword:
       state.confirmPassword &&
       blurred.confirmPassword &&
       !validationRules.confirmPassword
         ? "Passwords must match."
-        : null,
+        : "",
   };
 
   //Checks that all form inputs are valid.
@@ -110,9 +110,7 @@ export default function Signup() {
                       required
                       className={validate("username")}
                     />
-                    {validationWarnings.username && (
-                      <InputWarning warning={validationWarnings.username} />
-                    )}
+                    <InputWarning warning={validationWarnings.username} />
                   </label>
                 </li>
                 <li>
@@ -129,9 +127,7 @@ export default function Signup() {
                       required
                       className={validate("email")}
                     />
-                    {validationWarnings.email && (
-                      <InputWarning warning={validationWarnings.email} />
-                    )}
+                    <InputWarning warning={validationWarnings.email} />
                   </label>
                 </li>
                 <li>
@@ -148,9 +144,7 @@ export default function Signup() {
                       required
                       className={validate("password")}
                     />
-                    {validationWarnings.password && (
-                      <InputWarning warning={validationWarnings.password} />
-                    )}
+                    <InputWarning warning={validationWarnings.password} />
                   </label>
                 </li>
 
@@ -168,11 +162,10 @@ export default function Signup() {
                       required
                       className={validate("confirmPassword")}
                     />
-                    {validationWarnings.confirmPassword && (
-                      <InputWarning
-                        warning={validationWarnings.confirmPassword}
-                      />
-                    )}
+
+                    <InputWarning
+                      warning={validationWarnings.confirmPassword}
+                    />
                   </label>
                 </li>
                 <li>
