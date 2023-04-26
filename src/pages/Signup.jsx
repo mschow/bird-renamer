@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { Link, Form } from "react-router-dom";
 import "./Signup.css";
 import InputWarning from "../components/InputWarning";
+import { useAuth } from "../contexts/AuthContext";
 
 /**
  * Valid username should be less than 30 chararcters
@@ -99,7 +100,7 @@ export default function Signup() {
         </div>
         <div className="px-5 rounded-lg drop-shadow-sm">
           <div className="w-full">
-            <Form method="post">
+            <Form method="post" onSubmit={(e) => e.preventDefault}>
               <ul className="w-full p-5 grid grid-cols-1 gap-2">
                 <li>
                   <label htmlFor="username" className="block">
@@ -197,4 +198,14 @@ export default function Signup() {
       </div>
     </div>
   );
+}
+
+export async function signupAction({ request, params }) {
+  const formData = await request.formData();
+  const { username, email, password } = Object.fromEntries(formData);
+  const { signup } = useAuth();
+  try {
+    await signup(request.username, request.email, request.password);
+    return redirect("/");
+  } catch {}
 }
