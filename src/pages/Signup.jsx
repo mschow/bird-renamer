@@ -1,8 +1,8 @@
-import { React, useState } from "react";
-import { Link, Form } from "react-router-dom";
+import { React, useState, useContext } from "react";
+import { Link, Form, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import InputWarning from "../components/InputWarning";
-import { useAuth } from "../contexts/AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 /**
  * Valid username should be less than 30 chararcters
@@ -34,6 +34,9 @@ export default function Signup() {
     password: false,
     confirmPassword: false,
   });
+  const [signUpProcessing, setSignUpProcessing] = useState(false);
+  const { signUp } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const update = (event) => {
     const target = event.currentTarget;
@@ -92,6 +95,23 @@ export default function Signup() {
   const validate = (field) =>
     state[field] && !validationRules[field] ? "invalid" : undefined;
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { username, email, password } = state;
+
+    setSignUpProcessing(true);
+
+    try {
+      signUp(username, email, password).then(() => {
+        navigate("/");
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    setSignUpProcessing(false);
+  };
+
   return (
     <div className="w-full flex justify-center">
       <div className="mt-10 w-full min-w-[20em] max-w-[30em] md:w-2/5 md:min-w-[25em]">
@@ -100,7 +120,7 @@ export default function Signup() {
         </div>
         <div className="px-5 rounded-lg drop-shadow-sm">
           <div className="w-full">
-            <Form method="post" onSubmit={(e) => e.preventDefault}>
+            <Form method="post" onSubmit={handleSubmit}>
               <ul className="w-full p-5 grid grid-cols-1 gap-2">
                 <li>
                   <label htmlFor="username" className="block">
@@ -178,7 +198,7 @@ export default function Signup() {
                   <button
                     type="submit"
                     className="teal-btn w-full mt-5"
-                    disabled={!formIsValid()}
+                    disabled={!formIsValid() || signUpProcessing}
                   >
                     Sign Up
                   </button>
@@ -198,14 +218,4 @@ export default function Signup() {
       </div>
     </div>
   );
-}
-
-export async function signupAction({ request, params }) {
-  const formData = await request.formData();
-  const { username, email, password } = Object.fromEntries(formData);
-  const { signup } = useAuth();
-  try {
-    await signup(request.username, request.email, request.password);
-    return redirect("/");
-  } catch {}
 }

@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { birdService } from "./services/bird-service";
-import Signup, { signupAction } from "./pages/Signup";
+import Signup from "./pages/Signup";
 import ErrorPage from "./pages/ErrorPage";
 import AuthProvider from "./contexts/AuthContext";
 
@@ -21,7 +21,6 @@ const router = createBrowserRouter([
           {
             path: "/signup",
             element: <Signup />,
-            action: signupAction,
           },
         ],
       },

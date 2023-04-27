@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import { auth } from "../services/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -6,7 +6,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-const AuthContext = React.createContext();
+export const AuthContext = createContext();
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -26,13 +26,9 @@ export default function AuthProvider({ children }) {
   }, []);
 
   function signUp(username, email, password) {
-    console.log("HIT", username, email, password);
-    return createUserWithEmailAndPassword(auth, email, password)
-      .then(() => updateProfile(auth.currentUser, { username }))
-      .catch((error) => {
-        //TODO: Handle error. Maybe a snackbar?
-        console.error(error);
-      });
+    return createUserWithEmailAndPassword(auth, email, password).then(() =>
+      updateProfile(auth.currentUser, { username })
+    );
   }
 
   function login() {}
