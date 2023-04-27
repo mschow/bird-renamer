@@ -25,7 +25,7 @@ export default function AuthProvider({ children }) {
     return subscription;
   }, []);
 
-  function signUp(username, email, password) {
+  async function signUp(username, email, password) {
     return createUserWithEmailAndPassword(auth, email, password).then(() =>
       updateProfile(auth.currentUser, { username })
     );

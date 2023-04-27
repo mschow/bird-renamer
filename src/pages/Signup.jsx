@@ -40,12 +40,10 @@ export default function Signup() {
 
   const update = (event) => {
     const target = event.currentTarget;
-
     setBlurred({
       ...blurred,
       [target.name]: false,
     });
-
     setState({
       ...state,
       [target.name]: target.value,
@@ -54,7 +52,6 @@ export default function Signup() {
 
   const updateBlurred = (event) => {
     const target = event.currentTarget;
-
     setBlurred({
       ...blurred,
       [target.name]: true,
@@ -97,19 +94,16 @@ export default function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setSignUpProcessing(true);
     const { username, email, password } = state;
 
-    setSignUpProcessing(true);
-
     try {
-      signUp(username, email, password).then(() => {
-        navigate("/");
-      });
+      await signUp(username, email, password);
+      navigate("/");
     } catch (error) {
       console.error(error);
+      setSignUpProcessing(false);
     }
-
-    setSignUpProcessing(false);
   };
 
   return (
@@ -198,7 +192,7 @@ export default function Signup() {
                   <button
                     type="submit"
                     className="teal-btn w-full mt-5"
-                    disabled={!formIsValid() || signUpProcessing}
+                    disabled={signUpProcessing || !formIsValid()}
                   >
                     Sign Up
                   </button>
