@@ -3,6 +3,8 @@ import { Link, Form, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import InputWarning from "../components/InputWarning";
 import { AuthContext } from "../contexts/AuthContext";
+import { SnackBarContext } from "../contexts/SnackBarContext";
+import SnackBarItem, { SnackBarTypes } from "../models/SnackBarItem";
 
 /**
  * Valid username should be less than 30 chararcters
@@ -36,6 +38,7 @@ export default function Signup() {
   });
   const [signUpProcessing, setSignUpProcessing] = useState(false);
   const { signUp } = useContext(AuthContext);
+  const { setSnackBarItem } = useContext(SnackBarContext);
   const navigate = useNavigate();
 
   const update = (event) => {

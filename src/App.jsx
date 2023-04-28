@@ -2,20 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { NavLink, useLoaderData, Outlet } from "react-router-dom";
 import SnackBar from "./components/SnackBar";
-import { SnackBarItem, SnackBarTypes } from "./models/SnackBarItem";
 
 function App() {
   const birds = useLoaderData();
-  const [snackBarItem, setSnackBarItem] = useState(
-    new SnackBarItem("Test Error", SnackBarTypes.SUCCESS)
-  );
-  const unsetSnackbar = () => setSnackBarItem(null);
 
   return (
     <>
-      {snackBarItem && (
-        <SnackBar snackBarItem={snackBarItem} unsetSnackbar={unsetSnackbar} />
-      )}
+      <SnackBar />
       <div className="min-h-screen">
         <nav className="sticky top-0">
           <ul className="w-full dark:bg-zinc-900 bg-teal-700 text-neutral-50 flex justify-between p-5">

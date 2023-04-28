@@ -7,6 +7,7 @@ import { birdService } from "./services/bird-service";
 import Signup from "./pages/Signup";
 import ErrorPage from "./pages/ErrorPage";
 import AuthProvider from "./contexts/AuthContext";
+import SnackBarProvider from "./contexts/SnackBarContext";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <SnackBarProvider>
+        <RouterProvider router={router} />
+      </SnackBarProvider>
     </AuthProvider>
   </React.StrictMode>
 );

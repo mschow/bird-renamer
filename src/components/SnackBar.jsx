@@ -1,25 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./SnackBar.css";
+import { SnackBarContext } from "../contexts/SnackBarContext";
 
-export default function SnackBar({ snackBarItem, unsetSnackbar }) {
-  const FADE_TIME = 300;
-  const { message, type, timeout } = snackBarItem;
-  const [displaySnackbar, setDisplaySnackbar] = useState(false);
-
-  useEffect(() => {
-    if (!snackBarItem) return;
-    setDisplaySnackbar(true);
-
-    //Display snackbar until time out.
-    setTimeout(() => {
-      setDisplaySnackbar(false);
-    }, timeout);
-
-    //Unset snackbar after fade out.
-    setTimeout(() => {
-      unsetSnackbar();
-    }, timeout + FADE_TIME);
-  }, [snackBarItem]);
+export default function SnackBar() {
+  const { FADE_TIME, displaySnackbar, snackBarItem } =
+    useContext(SnackBarContext);
 
   return (
     <div
@@ -27,7 +12,9 @@ export default function SnackBar({ snackBarItem, unsetSnackbar }) {
         displaySnackbar ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className={`text-center snack-bar snack-bar-${type}`}>{message}</div>
+      <div className={`text-center snack-bar snack-bar-${snackBarItem?.type}`}>
+        {snackBarItem?.message}
+      </div>
     </div>
   );
 }

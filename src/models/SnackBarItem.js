@@ -1,4 +1,4 @@
-export class SnackBarItem {
+export default class SnackBarItem {
   #message;
   #type;
   #timeout;
