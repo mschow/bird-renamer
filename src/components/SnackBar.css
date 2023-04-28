@@ -1,3 +1,11 @@
+.snack-bar {
+  @apply border rounded-sm p-4 drop-shadow-md;
+}
+
+.snack-bar-warn {
+  @apply text-red-800 border-red-800 bg-red-200;
+}
+
 .snack-bar-success {
-  @apply text-red-800 border-red-800 border rounded-sm p-4 bg-red-200;
+  @apply text-green-800 border-green-800 bg-green-200;
 }

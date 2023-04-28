@@ -9,7 +9,7 @@ export class SnackBarItem {
    * @param {string} type Type string from the SnackBarTypes object provided below.
    * @param {number} timeout Time (in milliseconds) before snackbar message automatically undisplays.
    */
-  constructor(message, type, timeout = 3000) {
+  constructor(message, type, timeout = 5000) {
     this.#message = message;
     this.#type = type;
     this.#timeout = timeout;

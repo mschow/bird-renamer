@@ -9,10 +9,13 @@ function App() {
   const [snackBarItem, setSnackBarItem] = useState(
     new SnackBarItem("Test Error", SnackBarTypes.SUCCESS)
   );
+  const unsetSnackbar = () => setSnackBarItem(null);
 
   return (
     <>
-      {snackBarItem && <SnackBar snackBarItem={snackBarItem} />}
+      {snackBarItem && (
+        <SnackBar snackBarItem={snackBarItem} unsetSnackbar={unsetSnackbar} />
+      )}
       <div className="min-h-screen">
         <nav className="sticky top-0">
           <ul className="w-full dark:bg-zinc-900 bg-teal-700 text-neutral-50 flex justify-between p-5">
